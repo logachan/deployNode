@@ -19,11 +19,16 @@ async function initDB() {
             // ssl: { rejectUnauthorized: true },
         });
 
+
+        console.log(":PPPool", pool);
+        
+
         // Test the connection
         const connection = await pool.getConnection();
         console.log("✅ Database connected successfully!");
         connection.release();
     } catch (err) {
+        
         console.error("❌ Database connection failed:", err.message);
         process.exit(1); // Stop server if DB not reachable
     }
